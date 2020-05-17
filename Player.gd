@@ -2,34 +2,52 @@ extends KinematicBody2D
 
 export (int) var speed = 200
 export (int) var backwards_speed = 100
-export var weapon = 0
+export (float) var rotation_speed = 2.5
+export var weapons = ["unarmed", "handgun"]
+var selected_weapon = weapons[0]
 
 var velocity = Vector2()
+var rotation_dir = 0
+
+func _ready():
+	print("ready")
 
 func get_input():
-	look_at(get_global_mouse_position())
+	rotation_dir = 0
 	velocity = Vector2()
+	if Input.is_action_pressed('right'):
+		rotation_dir += 1
+	if Input.is_action_pressed('left'):
+		rotation_dir -= 1
 	if Input.is_action_pressed('down'):
-		velocity = Vector2(-backwards_speed, 0).rotated(rotation)
-	elif Input.is_action_pressed('up'):
+		velocity = Vector2(-speed, 0).rotated(rotation)
+	if Input.is_action_pressed('up'):
 		velocity = Vector2(speed, 0).rotated(rotation)
-		$AnimatedSprite.play("walk")
-	elif Input.is_action_pressed("click"):
-		$AnimatedSprite.play("handgun")	
+		if selected_weapon == weapons[0]:
+			$AnimatedSprite.play("walk")
+		elif selected_weapon == weapons[1]:
+			$AnimatedSprite.play("handgun_run_n_gun")
 	else:
-		$AnimatedSprite.play("unarmed_idle")
+		if selected_weapon == weapons[0]:
+			$AnimatedSprite.play("unarmed_idle")
+		elif selected_weapon == weapons[1]:
+			$AnimatedSprite.play("handgun_idle")
 		
-		
-
-func switch_weapons():
-	if Input.is_action_pressed("scroll_wheel_up") && weapon >= 0:
-		weapon += 1
-	if Input.is_action_pressed("scroll_wheel_down"):
-		weapon -= 1 && weapon <= 1	
 
 func _physics_process(delta):
 	get_input()
+	rotation += rotation_dir * rotation_speed * delta
 	velocity = move_and_slide(velocity)
-	
+
+func switch_weapons():
+	if Input.is_action_just_pressed("prev_weapon"):
+		print("next")
+		if selected_weapon == weapons[weapons.size() - 1]:
+			selected_weapon = weapons[0]
+		else:
+			var index = weapons.find(selected_weapon)
+			selected_weapon = weapons[index + 1]
+		
 func _process(delta):
 	switch_weapons()
+	print(selected_weapon)

@@ -19,25 +19,30 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ) ],
-"loop": false,
-"name": "handgun",
-"speed": 30.0
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "handgun_idle",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 14 ), ExtResource( 15 ) ],
 "loop": true,
 "name": "handgun_run_n_gun",
 "speed": 8.0
 }, {
+"frames": [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "unarmed_idle",
+"speed": 1.0
+}, {
 "frames": [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 12 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "walk",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 3 ) ],
-"loop": true,
-"name": "unarmed_idle",
-"speed": 1.0
+"frames": [ ExtResource( 3 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ) ],
+"loop": false,
+"name": "handgun",
+"speed": 30.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -53,7 +58,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.75, 0.75 )
 frames = SubResource( 1 )
-animation = "unarmed_idle"
+animation = "handgun_idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -8.10541, 0.540359 )
