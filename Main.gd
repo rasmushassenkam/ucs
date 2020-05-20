@@ -22,3 +22,8 @@ func _on_Player_shoot(Bullet, direction, location):
 	b.rotation = direction
 	b.position = location
 	b.velocity = Vector2(1900, 0).rotated(direction)
+
+
+func _on_Bullet_hit(dmg, body_hit):
+	print(dmg)
+	print(body_hit)

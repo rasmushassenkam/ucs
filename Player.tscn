@@ -34,10 +34,20 @@ animations = [ {
 "name": "nightstick_move",
 "speed": 8.0
 }, {
+"frames": [ ExtResource( 3 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ) ],
+"loop": false,
+"name": "handgun",
+"speed": 30.0
+}, {
 "frames": [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "unarmed_idle",
 "speed": 1.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "handgun_idle",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 14 ), ExtResource( 15 ) ],
 "loop": true,
@@ -48,16 +58,6 @@ animations = [ {
 "loop": true,
 "name": "nightstick_idle",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ) ],
-"loop": false,
-"name": "handgun",
-"speed": 30.0
-}, {
-"frames": [ ExtResource( 7 ) ],
-"loop": true,
-"name": "handgun_idle",
-"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -65,6 +65,7 @@ extents = Vector2( 11.7384, 31.0354 )
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 2.70181, -1.62108 )
+collision_mask = 14
 script = ExtResource( 10 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -77,6 +78,7 @@ position = Vector2( -8.10541, 0.540359 )
 shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+visible = false
 position = Vector2( 200, 0 )
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 16 )

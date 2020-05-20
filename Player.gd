@@ -12,9 +12,6 @@ var Bullet = preload("res://Bullet.tscn")
 
 signal shoot(type, direction, location)
 
-func _ready():
-	print("ready")
-
 func get_input():
 	rotation_dir = 0
 	velocity = Vector2()
