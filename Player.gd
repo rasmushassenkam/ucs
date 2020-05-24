@@ -1,8 +1,8 @@
 extends KinematicBody2D
 
-export (int) var speed = 200
-export (int) var backwards_speed = 100
-export (float) var rotation_speed = 2.5
+export (int) var speed = 100
+export (int) var backwards_speed = 50
+export (float) var rotation_speed = 4
 export var weapons = ["unarmed", "handgun"]
 var selected_weapon = weapons[0]
 

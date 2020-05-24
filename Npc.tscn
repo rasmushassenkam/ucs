@@ -30,7 +30,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 14.2141, 29.1898 )
+extents = Vector2( 3.46435, 7.58088 )
 
 [node name="Npc" type="KinematicBody2D"]
 collision_layer = 2
@@ -40,8 +40,8 @@ script = ExtResource( 4 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.75, 0.75 )
 frames = SubResource( 1 )
-animation = "npc01_death"
+animation = "npc01_idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -1.58155, 0.225945 )
+position = Vector2( -0.41896, 0.0598607 )
 shape = SubResource( 2 )
